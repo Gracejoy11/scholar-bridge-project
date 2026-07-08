@@ -1100,5 +1100,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   }
 }
 
-
-
+/* Force sidebar menu items to stay on a single line */
+.sidebar a {
+    white-space: nowrap !important;
+}
