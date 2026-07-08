@@ -16,6 +16,8 @@ export default function Navbar() {
           <NavLink to="/discover">Discover</NavLink>
           <a href="/#how">About Us</a>
           <a href="/#contact">Contact</a>
+          <Link to="/signin" className="mobile-only-link">Sign In</Link>
+          <Link to="/signup" className="mobile-only-link mobile-cta-btn">Get Started</Link>
         </nav>
         <div className="nav-cta">
           <Link to="/signin" className="signin">Sign In</Link>

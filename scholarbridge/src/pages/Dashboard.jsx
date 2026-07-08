@@ -8,7 +8,7 @@ export default function Dashboard() {
   const recommended = scholarships.slice(0, 4)
   return (
     <AppLayout
-      title="Good afternoon, Amara 👋"
+      title="Good afternoon, Faith 👋"
       subtitle="Ready to discover your next scholarship?"
       actions={<Link to="/discover" className="btn btn-primary">Find new matches <Icon.plus /></Link>}
     >

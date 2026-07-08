@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Icon } from './Icon.jsx'
-import student from '../assets/student-1.jpg'
+import student from '../assets/student-portrait.webp'
 
 const nav = [
   { to: '/dashboard', label: 'Dashboard', icon: Icon.grid },
@@ -16,7 +16,18 @@ export default function AppLayout({ title, subtitle, actions, children, searchPl
     <div className="app">
       <div className={'scrim' + (open ? ' show' : '')} onClick={() => setOpen(false)} />
       <aside className={'sidebar' + (open ? ' open' : '')}>
-        <Link to="/" className="brand"><span className="logo"><Icon.logo /></span>ScholarBridge</Link>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 26, padding: '0 8px' }}>
+          <Link to="/" className="brand" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 0, padding: 0 }}>
+            <span className="logo" style={{ flexShrink: 0 }}><Icon.logo /></span>
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+              <span style={{ fontWeight: 700, fontSize: '1.15rem' }}>ScholarBridge</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--blue-300)', fontWeight: 500, letterSpacing: '0.01em' }}>Your Bridge to Global Opportunities</span>
+            </div>
+          </Link>
+          <button className="sidebar-close" onClick={() => setOpen(false)} aria-label="Close menu">
+            <Icon.plus style={{ transform: 'rotate(45deg)', width: 24, height: 24, display: 'block', color: 'var(--blue-100)' }} />
+          </button>
+        </div>
         <p className="side-label">Menu</p>
         <nav className="side-nav" onClick={() => setOpen(false)}>
           {nav.map(n => (
@@ -28,8 +39,8 @@ export default function AppLayout({ title, subtitle, actions, children, searchPl
         </nav>
         <p className="side-label">Account</p>
         <nav className="side-nav" onClick={() => setOpen(false)}>
-          <NavLink to="/profile"><Icon.user /> Profile</NavLink>
-          <a href="#"><Icon.settings /> Settings</a>
+          <NavLink to="/profile" end><Icon.user /> Profile</NavLink>
+          <NavLink to="/profile/settings"><Icon.settings /> Settings</NavLink>
         </nav>
         <div className="side-foot">
           <p>Complete your profile to unlock better matches.</p>
@@ -44,10 +55,16 @@ export default function AppLayout({ title, subtitle, actions, children, searchPl
             <div className="search"><Icon.search /><input placeholder={searchPlaceholder} /></div>
           </div>
           <div className="top-right">
-            <Link to="/notifications" className="icon-btn"><span className="dot" /><Icon.bell /></Link>
+            <Link to="/notifications" className="icon-btn" style={{ position: 'relative' }}>
+              <span className="dot" style={{ position: 'absolute', top: 8, right: 8, width: 8, height: 8, background: 'var(--red)', borderRadius: '50%' }} />
+              <Icon.bell />
+            </Link>
             <Link to="/profile" className="avatar-chip">
-              <img src={student} alt="Amara Okafor" />
-              <div><b>Amara Okafor</b><small>Undergraduate</small></div>
+              <img src={student} alt="Faith" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <b>Faith</b>
+                <Icon.chevron style={{ width: 14, height: 14, color: 'var(--muted)', display: 'block' }} />
+              </div>
             </Link>
           </div>
         </div>

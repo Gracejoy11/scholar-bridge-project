@@ -8,14 +8,26 @@ const chips = ['All fields', 'STEM', 'Medicine', 'Business', 'Arts & Design', 'L
 
 export default function Discover() {
   const [chip, setChip] = useState('All fields')
+  const [showFilters, setShowFilters] = useState(false)
   return (
     <AppLayout title="Discover scholarships" subtitle="Explore opportunities matched to your profile and interests.">
       <div className="chips">
         {chips.map(c => <button key={c} className={'chip' + (chip === c ? ' active' : '')} onClick={() => setChip(c)}>{c}</button>)}
       </div>
 
+      <div className="mobile-filter-bar" style={{ display: 'none', marginBottom: 18 }}>
+        <button 
+          className="btn btn-ghost" 
+          onClick={() => setShowFilters(!showFilters)} 
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 18px', borderRadius: '12px', fontSize: '0.88rem' }}
+        >
+          <Icon.settings style={{ width: 16, height: 16 }} />
+          {showFilters ? 'Hide Filters' : 'Show Filters'}
+        </button>
+      </div>
+
       <div className="disc">
-        <aside className="filters">
+        <aside className={'filters' + (showFilters ? ' open' : '')}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}><h3>Filters</h3><a href="#" className="clear">Clear all</a></div>
           <div className="fgroup">
             <h4>Study level</h4>

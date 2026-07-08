@@ -29,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/scholarships" element={<MyScholarships />} />
         <Route path="/scholarship/:id" element={<ScholarshipDetail />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/settings" element={<Profile />} />
         <Route path="/notifications" element={<Notifications />} />
       </Routes>
     </HashRouter>
