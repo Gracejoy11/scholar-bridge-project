@@ -25,13 +25,9 @@ export default function ScholarshipDetail() {
         <div>
           <div className="detail-hero">
             <div className="top">
-              <span className="logo-badge has-img" style={{ width: 66, height: 66 }}><img src={crests[s.crest]} alt={s.org} /></span>
-              <div style={{ flex: 1 }}>
+              <span className="logo-badge has-img" style={{ width: 66, height: 66 }}><img src={crests[s.crest]} alt={s.org} style={{ width: '100%', height: '100%', objectFit: 'contain' }} /></span><div style={{ flex: 1 }}>
                 <h2 style={{ fontSize: '1.4rem' }}>{s.title} <span className={'pill ' + fundingClass(s.funding)} style={{ fontSize: '.72rem', verticalAlign: 'middle' }}>{s.funding}</span></h2>
                 <p className="org">{s.org}</p>
-                <div className="meta" style={{ marginTop: 8 }}>
-                  <span>{s.flag} {s.country}</span><span><Icon.user /> {s.level}</span><span><Icon.file /> {s.field}</span>
-                </div>
               </div>
             </div>
             <div className="detail-tabs">
