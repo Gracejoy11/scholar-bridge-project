@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Icon } from './Icon.jsx'
+import Chatbot from "./Chatbot";
 import student from '../assets/student-portrait.webp'
 
 const nav = [
@@ -79,6 +80,7 @@ export default function AppLayout({ title, subtitle, actions, children, searchPl
           {children}
         </div>
       </div>
+      <Chatbot />
     </div>
-  )
+  );
 }
